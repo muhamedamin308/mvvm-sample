@@ -22,31 +22,19 @@
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/log_in_bg">
 
-                <ImageView
-                    android:id="@+id/back"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="28dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.041"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/baseline_keyboard_backspace_24" />
-
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="48dp"
                     android:fontFamily="@font/baloo_paaji"
                     android:text="@string/sign_up"
                     android:textColor="@color/white"
                     android:textSize="40sp"
+                    app:layout_constraintVertical_bias="0.7"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/back"
-                    app:layout_constraintVertical_bias="0.300" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <EditText
