@@ -9,8 +9,9 @@
     <color name="pink2">#7A6C68</color>
     <color name="blue">#013878</color>
     <color name="background">#E1E1E1</color>
+    <color name="background_et">#2B2929</color>
     <color name="dark_pink">#230556</color>
     <color name="light_pink">#AFADAF</color>
-    <color name="orig_pink">#6019BB</color>
+    <color name="orig_pink">#0B60B0</color>
 
 </resources>

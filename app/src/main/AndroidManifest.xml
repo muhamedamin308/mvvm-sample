@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".MVVMApplication"
@@ -20,10 +20,7 @@
             android:name=".ui.home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.LauncherActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.auth.SingUpActivity"
+            android:name=".ui.auth.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".ui.auth.LoginActivity"

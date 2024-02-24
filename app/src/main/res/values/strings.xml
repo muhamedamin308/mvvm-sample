@@ -2,10 +2,13 @@
     <string name="app_name">FirstMVVM</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="password_confirm">Password Cofirm</string>
     <string name="forget_password">Forget Password?</string>
     <string name="log_in">Log in</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
     <string name="user_age">Age</string>
     <string name="username">Username</string>
+    <string name="create_account"><u>Don\'s Pizza have account? Create Account</u></string>
+    <string name="have_account"><u>Already have an account? Sign In</u></string>
 </resources>

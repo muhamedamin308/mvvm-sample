@@ -18,6 +18,17 @@ interface MyApi {
         @Field("password") password: String
     ): Response<User>
 
+    @FormUrlEncoded
+    @POST("add")
+    suspend fun userSignUp(
+        @Field("firstName") firstName: String,
+        @Field("lastName") lastName: String,
+        @Field("age") age: String,
+        @Field("email") email: String,
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): Response<User>
+
     companion object {
         operator fun invoke(
             networkConnectionInterceptor: NetworkConnectionInterceptor
@@ -28,7 +39,7 @@ interface MyApi {
 
             return Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://dummyjson.com/auth/")
+                .baseUrl("https://dummyjson.com/add")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(MyApi::class.java)

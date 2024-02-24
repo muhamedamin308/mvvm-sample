@@ -19,4 +19,24 @@ class UserRepo(
 
     fun getUser() = db.getUserDao().getUser()
 
+    suspend fun userSignUp(
+        firstName: String,
+        lastName: String,
+        age: String,
+        email: String,
+        username: String,
+        password: String
+    ): User? {
+        return apiRequest {
+            api.userSignUp(
+                firstName,
+                lastName,
+                age,
+                email,
+                username,
+                password
+            )
+        }
+    }
+
 }
