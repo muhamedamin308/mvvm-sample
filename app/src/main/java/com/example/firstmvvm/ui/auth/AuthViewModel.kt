@@ -9,7 +9,7 @@ import com.example.firstmvvm.util.NoInternetException
 
 class AuthViewModel(
     private val repository: UserRepo
-): ViewModel() {
+) : ViewModel() {
     var username: String? = null
     var password: String? = null
     var authListener: AuthListener? = null
@@ -29,8 +29,7 @@ class AuthViewModel(
                     repository.saveUser(it)
                     return@main
                 }
-//                authListener?.onFailed(authResponse?.message!!)
-            }catch (e: APIException) {
+            } catch (e: APIException) {
                 authListener?.onFailed(e.message!!)
             } catch (e: NoInternetException) {
                 authListener?.onFailed(e.message!!)

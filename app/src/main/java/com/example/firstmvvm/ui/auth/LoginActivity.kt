@@ -6,26 +6,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.firstmvvm.R
-import com.example.firstmvvm.data.db.AppDatabase
 import com.example.firstmvvm.data.db.entities.User
-import com.example.firstmvvm.data.network.MyApi
-import com.example.firstmvvm.data.network.NetworkConnectionInterceptor
-import com.example.firstmvvm.data.repo.UserRepo
 import com.example.firstmvvm.databinding.ActivityLoginBinding
 import com.example.firstmvvm.ui.home.HomeActivity
 import com.example.firstmvvm.util.hide
 import com.example.firstmvvm.util.show
 import com.example.firstmvvm.util.snakeBar
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 
-class LoginActivity : AppCompatActivity(), AuthListener {
+class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
     private lateinit var binding: ActivityLoginBinding
+
+    override val kodein by kodein()
+    private val factory: AuthViewModelFactory by instance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-        val api = MyApi(networkConnectionInterceptor)
-        val db = AppDatabase(this)
-        val repository = UserRepo(api, db)
-        val factory = AuthViewModelFactory(repository)
 
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_login)

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "169815312801",
+    "project_id": "blog-app-e41af",
+    "storage_bucket": "blog-app-e41af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169815312801:android:11081205eea4cb396063e0",
+        "android_client_info": {
+          "package_name": "com.example.firstmvvm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS30eddFrzCgNHagwrdHoGKYvS-CiqNTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
