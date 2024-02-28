@@ -3,13 +3,13 @@ package com.example.firstmvvm.ui.auth
 import android.content.Intent
 import android.view.View
 import androidx.lifecycle.ViewModel
-import com.example.firstmvvm.data.repo.UserRepo
+import com.example.firstmvvm.data.repo.UserRepository
 import com.example.firstmvvm.util.APIException
 import com.example.firstmvvm.util.Coroutines
 import com.example.firstmvvm.util.NoInternetException
 
 class AuthViewModel(
-    private val repository: UserRepo
+    private val repository: UserRepository
 ) : ViewModel() {
     var username: String? = null
     var password: String? = null

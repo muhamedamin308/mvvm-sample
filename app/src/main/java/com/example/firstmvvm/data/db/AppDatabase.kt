@@ -4,14 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.firstmvvm.data.db.entities.Post
+import com.example.firstmvvm.data.db.entities.TagsConverter
 import com.example.firstmvvm.data.db.entities.User
 
 @Database(
-    entities = [User::class],
+    entities = [User::class, Post::class],
     version = 1
 )
+@TypeConverters(TagsConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getUserDao(): UserDao
+    abstract fun getPostsDao(): PostDao
 
     companion object {
         @Volatile

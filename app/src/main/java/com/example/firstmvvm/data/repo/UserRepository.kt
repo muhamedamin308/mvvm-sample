@@ -5,7 +5,7 @@ import com.example.firstmvvm.data.db.entities.User
 import com.example.firstmvvm.data.network.MyApi
 import com.example.firstmvvm.data.network.SafeApiRequest
 
-class UserRepo(
+class UserRepository(
     private val api: MyApi,
     private val db: AppDatabase
 ) : SafeApiRequest() {

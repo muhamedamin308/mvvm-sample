@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.firstmvvm.ui.home.profile.ProfileViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.home.profile.ProfileFragment">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="30dp">
+
+                <TextView
+                    android:id="@+id/user_firstname"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/edittext_normal"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{viewModel.user.firstName}"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    tools:text="Terry"
+                    android:layout_marginEnd="5dp"/>
+
+                <TextView
+                    android:id="@+id/user_lastname"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="0.5"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/edittext_normal"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{viewModel.user.lastName}"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    tools:text="Medhurst" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/user_gender"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/edittext_normal"
+                android:fontFamily="sans-serif-black"
+                android:paddingStart="10dp"
+                android:text="@{viewModel.user.gender}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                tools:text="male" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/edittext_normal"
+                android:fontFamily="sans-serif-black"
+                android:paddingStart="10dp"
+                android:text="@{viewModel.user.username}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                tools:text="atuny0" />
+
+            <TextView
+                android:id="@+id/user_email"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/edittext_normal"
+                android:fontFamily="sans-serif-black"
+                android:text="@{viewModel.user.email}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                tools:text="atuny0@sohu.com" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>
