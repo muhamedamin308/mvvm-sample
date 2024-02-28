@@ -5,19 +5,22 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.firstmvvm.R
-import com.example.firstmvvm.data.db.entities.User
 import com.example.firstmvvm.databinding.ActivityLoginBinding
 import com.example.firstmvvm.ui.home.HomeActivity
+import com.example.firstmvvm.util.APIException
+import com.example.firstmvvm.util.NoInternetException
 import com.example.firstmvvm.util.hide
-import com.example.firstmvvm.util.show
 import com.example.firstmvvm.util.snakeBar
+import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
+class LoginActivity : AppCompatActivity(), KodeinAware {
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var viewModel: AuthViewModel
 
     override val kodein by kodein()
     private val factory: AuthViewModelFactory by instance()
@@ -26,9 +29,7 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
         binding =
             DataBindingUtil.setContentView(this, R.layout.activity_login)
-        val viewModel = ViewModelProvider(this, factory)[AuthViewModel::class.java]
-        binding.viewModel = viewModel
-        viewModel.authListener = this
+        viewModel = ViewModelProvider(this, factory)[AuthViewModel::class.java]
         viewModel.getLoggedInUser().observe(this) { user ->
             if (user != null) {
                 Intent(this, HomeActivity::class.java).also {
@@ -38,19 +39,32 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
                 }
             }
         }
+        binding.logIn.setOnClickListener {
+            loginUser()
+        }
 
+        binding.textView2.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
     }
 
-    override fun onStarted() {
-        binding.progressBar.show()
-    }
-
-    override fun onSuccess(user: User) {
-        binding.progressBar.hide()
-    }
-
-    override fun onFailed(message: String) {
-        binding.progressBar.hide()
-        binding.rootLayout.snakeBar(message)
+    private fun loginUser() {
+        val username = binding.emailedittext.text.toString().trim()
+        val password = binding.passwordedittext.text.toString().trim()
+        lifecycleScope.launch {
+            try {
+                val authResponse = viewModel.userLogin(username, password)
+                if (authResponse != null) {
+                    binding.progressBar.hide()
+                    viewModel.saveLoggedUser(authResponse)
+                } else {
+                    binding.rootLayout.snakeBar("Invalid credentials")
+                }
+            } catch (e: APIException) {
+                e.printStackTrace()
+            } catch (e: NoInternetException) {
+                e.printStackTrace()
+            }
+        }
     }
 }

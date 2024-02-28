@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.firstmvvm.data.db.AppDatabase
 import com.example.firstmvvm.data.network.MyApi
 import com.example.firstmvvm.data.network.NetworkConnectionInterceptor
+import com.example.firstmvvm.data.preferences.PreferenceProvider
 import com.example.firstmvvm.data.repo.PostRepository
 import com.example.firstmvvm.data.repo.UserRepository
 import com.example.firstmvvm.ui.auth.AuthViewModelFactory
@@ -23,8 +24,9 @@ class MVVMApplication : Application(), KodeinAware{
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { MyApi(instance()) }
         bind() from singleton { AppDatabase(instance()) }
+        bind() from singleton { PreferenceProvider(instance()) }
         bind() from singleton { UserRepository(instance(), instance()) }
-        bind() from singleton { PostRepository(instance(), instance()) }
+        bind() from singleton { PostRepository(instance(), instance(), instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
         bind() from provider { ProfileViewModelFactory(instance()) }
         bind() from provider { PostsViewModelFactory(instance()) }

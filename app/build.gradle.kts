@@ -79,7 +79,7 @@ dependencies {
     //Kotlin Dependency Injection
     implementation("org.kodein.di:kodein-di-generic-jvm:6.2.1")
     implementation("org.kodein.di:kodein-di-framework-android-x:6.2.1")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
@@ -96,4 +96,11 @@ dependencies {
     //Android Navigation Architecture
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    //Preferences
+    implementation("androidx.preference:preference-ktx:1.2.1")
+
+    //Groupie
+    implementation("com.github.lisawray.groupie:groupie:2.10.1")
+    implementation("com.github.lisawray.groupie:groupie-databinding:2.10.1")
 }

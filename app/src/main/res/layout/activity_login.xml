@@ -3,13 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.example.firstmvvm.ui.auth.AuthViewModel" />
-    </data>
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
@@ -63,12 +56,11 @@
                         android:ems="10"
                         android:fontFamily="sans-serif-black"
                         android:hint="@string/username"
-                        android:textColorHint="@color/light_pink"
                         android:inputType="textEmailAddress"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:text="@={viewModel.username}"
                         android:textColor="@color/background"
+                        android:textColorHint="@color/light_pink"
                         app:layout_constraintBottom_toTopOf="@+id/passwordedittext"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -88,9 +80,8 @@
                         android:inputType="textPassword"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:textColorHint="@color/light_pink"
-                        android:text="@={viewModel.password}"
                         android:textColor="@color/background"
+                        android:textColorHint="@color/light_pink"
                         app:layout_constraintBottom_toTopOf="@id/forget_tv"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -119,7 +110,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="30dp"
                         android:fontFamily="sans-serif-black"
-                        android:onClick="@{viewModel::onSignUp}"
                         android:text="@string/create_account"
                         android:textColor="@color/background"
                         android:textSize="16sp"
@@ -135,11 +125,10 @@
                         android:layout_marginHorizontal="50dp"
                         android:layout_marginVertical="20dp"
                         android:fontFamily="sans-serif-medium"
-                        android:onClick="@{viewModel::onLoginButtonClick}"
                         android:paddingVertical="10dp"
                         android:text="@string/log_in"
-                        android:textSize="20sp"
                         android:textColor="@color/white"
+                        android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"

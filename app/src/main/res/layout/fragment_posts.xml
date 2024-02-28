@@ -3,11 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.posts.PostsFragment">
+    tools:context=".ui.home.posts.PostsFragment"
+    android:layout_marginVertical="10dp">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/orig_pink"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/post_rec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:listitem="@layout/item_post">
 
+    </androidx.recyclerview.widget.RecyclerView>
 </FrameLayout>

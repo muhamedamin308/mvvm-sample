@@ -4,13 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.example.firstmvvm.ui.auth.AuthViewModel" />
-    </data>
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/root_view"
         android:layout_width="match_parent"
@@ -63,7 +56,6 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@={viewModel.firstName}"
                     android:textColor="@color/background" />
 
                 <EditText
@@ -80,7 +72,6 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@={viewModel.lastName}"
                     android:textColor="@color/background" />
 
                 <EditText
@@ -97,7 +88,6 @@
                     android:inputType="number"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@={viewModel.age}"
                     android:textColor="@color/background" />
 
                 <EditText
@@ -114,7 +104,6 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@={viewModel.username}"
                     android:textColor="@color/background" />
 
                 <EditText
@@ -131,7 +120,6 @@
                     android:inputType="textEmailAddress"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@={viewModel.email}"
                     android:textColor="@color/background" />
 
                 <EditText
@@ -148,7 +136,6 @@
                     android:inputType="textPassword"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@={viewModel.password}"
                     android:textColor="@color/background" />
 
                 <EditText
@@ -165,11 +152,10 @@
                     android:inputType="textPassword"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@={viewModel.passwordConfirm}"
                     android:textColor="@color/background" />
 
                 <Button
-                    android:id="@+id/log_in"
+                    android:id="@+id/sign_up"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="50dp"
@@ -178,7 +164,6 @@
                     android:text="@string/sign_up"
                     android:textSize="20sp"
                     android:textColor="@color/white"
-                    android:onClick="@{viewModel::onLogin}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -186,13 +171,12 @@
                     app:layout_constraintTop_toBottomOf="@id/passwordedittext" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/have_account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:fontFamily="sans-serif-black"
                     android:gravity="center"
-                    android:onClick="@{viewModel::onLogin}"
                     android:text="@string/have_account"
                     android:textColor="@color/background"
                     android:textSize="16sp" />
