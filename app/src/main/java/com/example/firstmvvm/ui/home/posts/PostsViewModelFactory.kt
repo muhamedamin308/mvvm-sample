@@ -7,7 +7,7 @@ import com.example.firstmvvm.data.repo.PostRepository
 @Suppress("UNCHECKED_CAST")
 class PostsViewModelFactory(
     private val repository: PostRepository
-): ViewModelProvider.NewInstanceFactory() {
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         PostsViewModel(repository) as T
 }

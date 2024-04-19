@@ -5,7 +5,7 @@ import com.example.firstmvvm.data.repo.UserRepository
 
 class ProfileViewModel(
     private val repository: UserRepository
-): ViewModel() {
+) : ViewModel() {
     val user = repository.getUser()
 
 }

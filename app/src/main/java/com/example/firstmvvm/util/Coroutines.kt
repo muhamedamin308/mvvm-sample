@@ -6,14 +6,12 @@ import kotlinx.coroutines.launch
 
 object Coroutines {
     fun main(work: suspend (() -> Unit)) =
-        CoroutineScope(Dispatchers.Main)
-            .launch {
-                work()
-            }
+        CoroutineScope(Dispatchers.Main).launch {
+            work()
+        }
 
     fun io(work: suspend (() -> Unit)) =
-        CoroutineScope(Dispatchers.IO)
-            .launch {
-                work()
-            }
+        CoroutineScope(Dispatchers.IO).launch {
+            work()
+        }
 }

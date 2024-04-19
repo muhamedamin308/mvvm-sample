@@ -16,8 +16,7 @@ interface MyApi {
     @FormUrlEncoded
     @POST("auth/login")
     suspend fun userLogin(
-        @Field("username") username: String,
-        @Field("password") password: String
+        @Field("username") username: String, @Field("password") password: String
     ): Response<User>
 
     @FormUrlEncoded
@@ -39,17 +38,12 @@ interface MyApi {
         operator fun invoke(
             networkConnectionInterceptor: NetworkConnectionInterceptor
         ): MyApi {
-            val okHttpClient = OkHttpClient.Builder()
-                .addInterceptor(networkConnectionInterceptor)
-                .build()
+            val okHttpClient =
+                OkHttpClient.Builder().addInterceptor(networkConnectionInterceptor).build()
 
-            return Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl("https://dummyjson.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            return Retrofit.Builder().client(okHttpClient).baseUrl("https://dummyjson.com/")
+                .addConverterFactory(GsonConverterFactory.create()).build()
                 .create(MyApi::class.java)
         }
     }
 }
-//OWsTbMUgFc

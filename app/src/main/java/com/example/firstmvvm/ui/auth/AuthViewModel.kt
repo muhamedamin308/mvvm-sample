@@ -13,8 +13,7 @@ class AuthViewModel(
     fun getLoggedInUser() = repository.getUser()
 
     suspend fun userLogin(
-        email: String,
-        password: String
+        email: String, password: String
     ) = withContext(Dispatchers.IO) {
         repository.userLogin(email, password)
     }

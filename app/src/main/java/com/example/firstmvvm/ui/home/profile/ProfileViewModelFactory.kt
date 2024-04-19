@@ -7,7 +7,7 @@ import com.example.firstmvvm.data.repo.UserRepository
 @Suppress("UNCHECKED_CAST")
 class ProfileViewModelFactory(
     private val repository: UserRepository
-): ViewModelProvider.NewInstanceFactory() {
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         ProfileViewModel(repository) as T
 }

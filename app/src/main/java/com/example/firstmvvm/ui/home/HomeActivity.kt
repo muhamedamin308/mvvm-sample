@@ -27,9 +27,7 @@ class HomeActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
     }
 
-    override fun onSupportNavigateUp(): Boolean =
-        NavigationUI.navigateUp(
-            Navigation.findNavController(this, R.id.fragmentContainerView),
-            drawerLayout
-        )
+    override fun onSupportNavigateUp(): Boolean = NavigationUI.navigateUp(
+        Navigation.findNavController(this, R.id.fragmentContainerView), drawerLayout
+    )
 }

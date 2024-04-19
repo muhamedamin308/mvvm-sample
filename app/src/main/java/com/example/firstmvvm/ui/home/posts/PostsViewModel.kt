@@ -6,7 +6,7 @@ import com.example.firstmvvm.util.lazyDeferred
 
 class PostsViewModel(
     private val repository: PostRepository
-): ViewModel() {
+) : ViewModel() {
     val posts by lazyDeferred {
         repository.getPosts()
     }

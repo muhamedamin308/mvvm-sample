@@ -6,16 +6,13 @@ import com.example.firstmvvm.data.network.MyApi
 import com.example.firstmvvm.data.network.SafeApiRequest
 
 class UserRepository(
-    private val api: MyApi,
-    private val db: AppDatabase
+    private val api: MyApi, private val db: AppDatabase
 ) : SafeApiRequest() {
-    suspend fun userLogin(email: String, password: String): User? =
-        apiRequest {
-            api.userLogin(email, password)
-        }
+    suspend fun userLogin(email: String, password: String): User? = apiRequest {
+        api.userLogin(email, password)
+    }
 
-    suspend fun saveUser(user: User) =
-        db.getUserDao().insert(user)
+    suspend fun saveUser(user: User) = db.getUserDao().insert(user)
 
     fun getUser() = db.getUserDao().getUser()
 
@@ -29,12 +26,7 @@ class UserRepository(
     ): User? {
         return apiRequest {
             api.userSignUp(
-                firstName,
-                lastName,
-                age,
-                email,
-                username,
-                password
+                firstName, lastName, age, email, username, password
             )
         }
     }

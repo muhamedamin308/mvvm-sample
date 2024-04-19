@@ -19,10 +19,10 @@ class ProfileFragment : Fragment(), KodeinAware {
     override val kodein by kodein()
     private val factory: ProfileViewModelFactory by instance()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentProfileBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        val binding: FragmentProfileBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         viewModel = ViewModelProvider(this, factory)[ProfileViewModel::class.java]
         binding.viewModel = viewModel
         binding.lifecycleOwner = this

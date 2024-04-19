@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="post"
             type="com.example.firstmvvm.data.db.entities.Post" />
@@ -12,9 +13,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="13dp"
+        android:layout_margin="10dp"
         android:padding="8dp"
-        android:layout_margin="10dp">
+        app:cardCornerRadius="13dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,13 +35,13 @@
                 android:id="@+id/post_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:fontFamily="sans-serif-black"
                 android:text="@{post.title}"
-                tools:text="His mother had always taught him"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:layout_marginHorizontal="10dp"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:text="His mother had always taught him" />
 
             <TextView
                 android:id="@+id/post_body"
@@ -50,11 +51,11 @@
                 android:layout_marginVertical="10dp"
                 android:fontFamily="sans-serif"
                 android:text="@{post.body}"
-                tools:text="His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind."
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind." />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -78,9 +79,9 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@{Integer.toString(post.reactions)}"
-                    tools:text="10"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:text="10" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

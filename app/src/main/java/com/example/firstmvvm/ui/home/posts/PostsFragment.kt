@@ -29,8 +29,7 @@ class PostsFragment : Fragment(), KodeinAware {
     private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_posts, container, false)
         recycler = view.findViewById(R.id.post_rec)
@@ -53,7 +52,7 @@ class PostsFragment : Fragment(), KodeinAware {
         }
     }
 
-    private fun initRecyclerView(postItem: List<PostItem>){
+    private fun initRecyclerView(postItem: List<PostItem>) {
         val adapter = GroupAdapter<GroupieViewHolder>().apply {
             addAll(postItem)
         }
@@ -64,8 +63,7 @@ class PostsFragment : Fragment(), KodeinAware {
         }
     }
 
-    private fun List<Post>.toPostItem(): List<PostItem> =
-        this.map {
-            PostItem(it)
-        }
+    private fun List<Post>.toPostItem(): List<PostItem> = this.map {
+        PostItem(it)
+    }
 }

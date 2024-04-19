@@ -10,8 +10,7 @@ import com.example.firstmvvm.data.db.entities.TagsConverter
 import com.example.firstmvvm.data.db.entities.User
 
 @Database(
-    entities = [User::class, Post::class],
-    version = 1
+    entities = [User::class, Post::class], version = 1
 )
 @TypeConverters(TagsConverter::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -30,9 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
-            context.applicationContext,
-            AppDatabase::class.java,
-            "app_database"
+            context.applicationContext, AppDatabase::class.java, "app_database"
         ).build()
     }
 }

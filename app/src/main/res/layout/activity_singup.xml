@@ -52,11 +52,11 @@
                     android:ems="10"
                     android:fontFamily="sans-serif-black"
                     android:hint="First name"
-                    android:textColorHint="@color/light_pink"
+                    android:textColorHint="#AFADAF"
+                    android:textColor="#E1E1E1"
                     android:inputType="text"
                     android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textColor="@color/background" />
+                    android:paddingEnd="10dp" />
 
                 <EditText
                     android:id="@+id/user_last_name"

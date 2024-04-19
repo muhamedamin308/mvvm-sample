@@ -14,23 +14,24 @@ import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 private const val MINIMUM_DURATION = 6
+
 class PostRepository(
     private val api: MyApi,
     private val db: AppDatabase,
     private val preferenceProvider: PreferenceProvider
-): SafeApiRequest() {
+) : SafeApiRequest() {
     private val posts = MutableLiveData<List<Post>>()
+
     init {
         posts.observeForever {
             savePosts(it)
         }
     }
 
-    suspend fun getPosts(): LiveData<List<Post>> =
-        withContext(Dispatchers.IO) {
-            fetchPosts()
-            db.getPostsDao().getAllPosts()
-        }
+    suspend fun getPosts(): LiveData<List<Post>> = withContext(Dispatchers.IO) {
+        fetchPosts()
+        db.getPostsDao().getAllPosts()
+    }
 
     private suspend fun fetchPosts() {
         val lastSavedAt = preferenceProvider.getLastSavedAt()

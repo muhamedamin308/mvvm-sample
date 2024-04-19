@@ -7,7 +7,7 @@ import com.xwray.groupie.databinding.BindableItem
 
 class PostItem(
     private val post: Post
-): BindableItem<ItemPostBinding>() {
+) : BindableItem<ItemPostBinding>() {
     override fun bind(viewBinding: ItemPostBinding, position: Int) {
         viewBinding.post = post
     }

@@ -8,8 +8,7 @@ import com.google.gson.reflect.TypeToken
 
 @Entity
 data class Post(
-    @PrimaryKey(autoGenerate = false)
-    val id: Int,
+    @PrimaryKey(autoGenerate = false) val id: Int,
     val body: String,
     val reactions: Int,
     val tags: List<String>,
@@ -20,10 +19,10 @@ data class Post(
 class TagsConverter {
     @TypeConverter
     fun fromString(value: String?): List<String> {
-        val listType =object: TypeToken<List<String>>(){}.type
+        val listType = object : TypeToken<List<String>>() {}.type
         return Gson().fromJson(value, listType)
     }
+
     @TypeConverter
-    fun fromList(list: List<String>?): String =
-        Gson().toJson(list)
+    fun fromList(list: List<String>?): String = Gson().toJson(list)
 }
